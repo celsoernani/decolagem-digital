@@ -19,6 +19,7 @@ export const DEFAULTS: SiteContent = {
   faq_4_p: "Quanto tempo dura?", faq_4_r: "Cerca de 1 hora.",
   cta_final_titulo: "Vagas limitadas — garanta a sua",
   contato_email: "contato@decolagemdigital.com.br",
+  link_comunidade: "place-holder.com",
 };
 
 export function parseContentCsv(csv: string): SiteContent {

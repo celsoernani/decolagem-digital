@@ -28,7 +28,7 @@ O site está conectado a uma planilha do Google Sheets chamada **"Decolagem Digi
 
 **Importante:** edite **somente** a coluna `valor`. Não apague nem mude os nomes na coluna `chave` — eles precisam ficar exatamente como estão para o site continuar funcionando.
 
-### Lista completa dos itens que podem ser alterados (22 no total)
+### Lista completa dos itens que podem ser alterados (23 no total)
 
 | Chave (não mexer) | O que ela controla |
 |---|---|
@@ -54,6 +54,7 @@ O site está conectado a uma planilha do Google Sheets chamada **"Decolagem Digi
 | `faq_4_r` | Resposta da 4ª pergunta do FAQ |
 | `cta_final_titulo` | Título da seção final, antes do rodapé |
 | `contato_email` | Email de contato mostrado no rodapé do site |
+| `link_comunidade` | Link de convite da comunidade do WhatsApp (aparece na página de agradecimento) |
 
 ---
 
@@ -75,7 +76,20 @@ Isso significa que você **não precisa ficar checando a planilha o tempo todo**
 
 ---
 
-## 4. Como o site é publicado
+## 4. Comunidade do WhatsApp — quando ela ficar cheia
+
+Depois que a pessoa se inscreve, ela vê um botão para entrar na comunidade do WhatsApp (link da chave `link_comunidade`).
+
+O WhatsApp tem um limite de integrantes por grupo/comunidade. Como esse controle é feito por você, direto no WhatsApp, faça assim:
+
+1. De vez em quando, abra o WhatsApp e confira quantos integrantes tem a comunidade.
+2. Quando ela estiver cheia (ou perto disso), crie uma **nova comunidade** no WhatsApp e copie o novo link de convite.
+3. Volte na planilha, aba `conteudo`, e troque o valor da chave `link_comunidade` pelo novo link.
+4. Pronto — o botão na página de agradecimento passa a levar para a nova comunidade automaticamente, sem precisar mexer em código nem pedir ajuda técnica.
+
+---
+
+## 5. Como o site é publicado
 
 O site fica hospedado em um serviço chamado **Vercel** (gratuito). Ele funciona assim:
 
@@ -85,7 +99,7 @@ O site fica hospedado em um serviço chamado **Vercel** (gratuito). Ele funciona
 
 ---
 
-## 5. Links importantes
+## 6. Links importantes
 
 - **Endereço do site:** `[será preenchido após o deploy]`
 - **Planilha do Google Sheets:** `[será preenchido após o deploy]`
@@ -95,7 +109,7 @@ Esses links serão preenchidos durante a sessão de publicação (deploy) feita 
 
 ---
 
-## 6. Se algo der errado
+## 7. Se algo der errado
 
 - **Se o formulário de inscrição não enviar:** verifique sua conexão com a internet e tente novamente.
 - **Se a inscrição não aparecer na planilha:** espere um minuto e verifique de novo. Confira também a caixa de spam/lixo eletrônico do seu email, caso o aviso não tenha chegado na caixa de entrada principal. Se mesmo assim não resolver, entre em contato com quem configurou o site para você.
