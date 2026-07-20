@@ -9,6 +9,7 @@ import FAQ from "../components/FAQ.astro";
 import CTAFinal from "../components/CTAFinal.astro";
 import Rodape from "../components/Rodape.astro";
 const content = await getContent();
+Astro.response.headers.set("Cache-Control", "s-maxage=60, stale-while-revalidate=300");
 ---
 <Base title="Decolagem Digital — Aula grátis" description={content.subtitulo_topo}>
   <Hero content={content} />
