@@ -2,7 +2,7 @@
 import Base from "../layouts/Base.astro";
 import { getContent } from "../lib/content";
 const content = await getContent();
-Astro.response.headers.set("Cache-Control", "s-maxage=60, stale-while-revalidate=300");
+Astro.response.headers.set("Cache-Control", "no-store");
 ---
 <Base title="Inscrição confirmada — Decolagem Digital" description="Sua vaga está garantida.">
   <section class="min-h-screen flex flex-col items-center justify-center text-center gap-4 px-6">
