@@ -1,0 +1,11 @@
+---
+import type { SiteContent } from "../lib/content";
+const { content } = Astro.props as { content: SiteContent };
+const bullets = [content.aula_bullet_1, content.aula_bullet_2, content.aula_bullet_3, content.aula_bullet_4];
+---
+<section class="bg-slate-50 px-6 py-14"><div class="mx-auto max-w-2xl">
+  <h2 class="text-2xl sm:text-3xl font-bold text-blue-900 mb-6 text-center">O que você vai aprender</h2>
+  <ul class="flex flex-col gap-3">
+    {bullets.map((b) => <li class="flex gap-3"><span class="text-amber-500 font-bold">✓</span><span>{b}</span></li>)}
+  </ul>
+</div></section>

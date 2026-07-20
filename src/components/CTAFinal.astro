@@ -1,0 +1,9 @@
+---
+import type { SiteContent } from "../lib/content";
+import LeadForm from "./LeadForm.astro";
+const { content } = Astro.props as { content: SiteContent };
+---
+<section class="bg-blue-900 text-white px-6 py-16"><div class="mx-auto max-w-2xl flex flex-col items-center text-center gap-6">
+  <h2 class="text-2xl sm:text-4xl font-extrabold">{content.cta_final_titulo}</h2>
+  <LeadForm content={content} />
+</div></section>

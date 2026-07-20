@@ -1,0 +1,9 @@
+---
+import type { SiteContent } from "../lib/content";
+const { content } = Astro.props as { content: SiteContent };
+---
+<footer class="px-6 py-8 text-center text-sm text-slate-500">
+  <p>Contato: {content.contato_email}</p>
+  <p><a href="/politica-de-privacidade" class="underline">Política de Privacidade</a></p>
+  <p>© 2026 Decolagem Digital</p>
+</footer>

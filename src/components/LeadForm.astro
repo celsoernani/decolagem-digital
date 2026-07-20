@@ -1,0 +1,42 @@
+---
+import type { SiteContent } from "../lib/content";
+interface Props { content: SiteContent; }
+const { content } = Astro.props;
+const endpoint = import.meta.env.PUBLIC_APPS_SCRIPT_URL;
+---
+<form class="flex flex-col gap-3 w-full max-w-md" data-lead-form data-endpoint={endpoint}>
+  <input name="nome" type="text" required placeholder="Seu nome"
+    class="rounded-lg border border-slate-300 px-4 py-3 text-base" />
+  <input name="email" type="email" required placeholder="Seu melhor email"
+    class="rounded-lg border border-slate-300 px-4 py-3 text-base" />
+  <input name="website" type="text" tabindex="-1" autocomplete="off"
+    class="hidden" aria-hidden="true" />
+  <label class="flex items-start gap-2 text-sm text-slate-600">
+    <input name="consentimento" type="checkbox" required class="mt-1" />
+    <span>Aceito receber comunicações e li a
+      <a href="/politica-de-privacidade" class="underline">política de privacidade</a>.</span>
+  </label>
+  <button type="submit"
+    class="rounded-lg bg-amber-500 px-6 py-3 text-lg font-bold text-white hover:bg-amber-600">
+    {content.botao_texto}
+  </button>
+  <p data-form-error class="hidden text-sm text-red-600"></p>
+</form>
+<script>
+  document.querySelectorAll<HTMLFormElement>("[data-lead-form]").forEach((form) => {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const err = form.querySelector<HTMLElement>("[data-form-error]");
+      if ((form.elements.namedItem("website") as HTMLInputElement).value) return; // bot
+      const btn = form.querySelector("button")!;
+      btn.disabled = true; btn.textContent = "Enviando...";
+      try {
+        await fetch(form.dataset.endpoint!, { method: "POST", body: new FormData(form) });
+        window.location.href = "/obrigado";
+      } catch {
+        if (err) { err.textContent = "Erro ao enviar. Tente novamente."; err.classList.remove("hidden"); }
+        btn.disabled = false;
+      }
+    });
+  });
+</script>

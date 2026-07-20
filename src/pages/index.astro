@@ -1,0 +1,21 @@
+---
+import Base from "../layouts/Base.astro";
+import { getContent } from "../lib/content";
+import Hero from "../components/Hero.astro";
+import Dor from "../components/Dor.astro";
+import Aula from "../components/Aula.astro";
+import QuemSou from "../components/QuemSou.astro";
+import FAQ from "../components/FAQ.astro";
+import CTAFinal from "../components/CTAFinal.astro";
+import Rodape from "../components/Rodape.astro";
+const content = await getContent();
+---
+<Base title="Decolagem Digital — Aula grátis" description={content.subtitulo_topo}>
+  <Hero content={content} />
+  <Dor content={content} />
+  <Aula content={content} />
+  <QuemSou content={content} />
+  <FAQ content={content} />
+  <CTAFinal content={content} />
+  <Rodape content={content} />
+</Base>
